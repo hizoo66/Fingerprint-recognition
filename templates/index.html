@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fingerprint Recognition</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .image-area {
+            position: relative;
+        }
+        .image-area img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <header class="text-center">
+            <h1 class="display-4 font-weight-bold text-dark">Fingerprint Recognition</h1>
+            <p class="lead mb-5 text-dark font-weight-bold">나의 지문이 등록되어 있는지 확인하세요!</p>
+        </header>
+
+        <div class="row py-4">
+            <div class="col-lg-6 mx-auto">
+                <!-- Upload image input -->
+                <form enctype="multipart/form-data" method="POST" id="upload-form">
+                    <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                        <input class="form-control border-0" id="upload" name="file" type="file">
+                        <label class="font-weight-light text-muted" for="upload" id="upload-label">Choose file</label>
+                        <div class="input-group-append">
+                            <label class="btn btn-light m-0 rounded-pill px-4" for="upload"> 
+                                <i class="fa fa-cloud-upload mr-2 text-muted"></i>
+                                <small class="text-uppercase font-weight-bold text-muted">Choose file</small>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Uploaded image area -->
+                    <div class="image-area mt-4">
+                        <img alt="" class="img-fluid rounded shadow-sm mx-auto d-block" id="imageResult" name="imageResult" src="#">
+                    </div>
+
+                    <!-- Submit buttons -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col text-center">
+                                <button formaction="{{ url_for('predict_image_file') }}" class="btn btn-primary my-3" type="submit">Predict</button>
+                                <button formaction="{{ url_for('upload_file') }}" class="btn btn-secondary my-3" type="submit">Save to Database</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

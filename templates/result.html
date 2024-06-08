@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Prediction Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <header class="text-center">
+            <h1 class="display-4 font-weight-bold text-dark">Prediction Result</h1>
+        </header>
+
+        <div class="row py-4">
+            <div class="col-lg-6 mx-auto">
+                <!-- Display result -->
+                <div class="text-center">
+                    <h2 class="font-weight-bold text-dark">Prediction: {{ predictions }}</h2>
+                    <p class="lead text-dark">Label: {{ label }}</p>
+                    <div class="image-area mt-4">
+                        <img alt="Result Image" class="img-fluid rounded shadow-sm mx-auto d-block" src="data:image/bmp;base64,{{ img_str }}">
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('hello_world') }}" class="btn btn-primary">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
